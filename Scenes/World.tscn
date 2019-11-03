@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/paddle.gd" type="Script" id=1]
 [ext_resource path="res://Breakout Tile Set Free/PNG/49-Breakout-Tiles.png" type="Texture" id=2]
-[ext_resource path="res://Breakout Tile Set Free/PNG/58-Breakout-Tiles.png" type="Texture" id=3]
-[ext_resource path="res://Breakout Tile Set Free/PNG/09-Breakout-Tiles.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Ball.gd" type="Script" id=3]
+[ext_resource path="res://Breakout Tile Set Free/PNG/58-Breakout-Tiles.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Tile.gd" type="Script" id=5]
+[ext_resource path="res://Breakout Tile Set Free/PNG/17-Breakout-Tiles.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 13.7256
@@ -16,10 +18,13 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id=3]
 radius = 11.2024
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 15.3722, 10.8765 )
+
 [node name="World" type="Node"]
 
 [node name="Paddle" type="KinematicBody2D" parent="."]
-position = Vector2( 518.379, 603.562 )
+position = Vector2( 504.775, 610.364 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -36,13 +41,14 @@ rotation = 1.57068
 shape = SubResource( 1 )
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2( 516.882, 540.973 )
+position = Vector2( 503.279, 566.252 )
 mode = 2
 physics_material_override = SubResource( 4 )
 gravity_scale = 0.0
 linear_velocity = Vector2( 200, -200 )
 linear_damp = 0.0
 angular_damp = 0.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -50,7 +56,7 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Ball"]
 position = Vector2( 21.3491, -12.2378 )
 scale = Vector2( 0.18084, 0.16342 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 position = Vector2( 21.3378, -12.2278 )
@@ -66,10 +72,273 @@ polygon = PoolVector2Array( -0.187302, -0.11644, 0.28331, 700.476, -60.6772, 700
 [node name="Orange Tiles" type="Node" parent="Tiles"]
 
 [node name="Tile" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 35.5509, 431.308 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile"]
 position = Vector2( 0.346909, 0.333915 )
 scale = Vector2( 0.0800467, 0.177519 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile3" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 157.679, 430.63 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile3"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile3"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile4" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 217.034, 429.63 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile4"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile4"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile5" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 277.283, 431.764 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile5"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile5"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile6" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 337.471, 429.924 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile6"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile6"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile7" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 396.346, 430.535 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile7"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile7"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile8" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 455.871, 430.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile8"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile8"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile9" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 516.871, 432.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile9"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile9"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile10" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 576.871, 431.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile10"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile10"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile11" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 635.871, 430.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile11"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile11"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile12" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 695.871, 431.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile12"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile12"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile13" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 755.871, 431.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile13"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile13"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile14" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 816.871, 430.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile14"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile14"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile15" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 875.871, 431.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile15"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile15"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile16" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 936.871, 431.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile16"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile16"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile17" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 995.871, 432.298 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile17"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile17"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
+
+[node name="Tile2" type="StaticBody2D" parent="Tiles/Orange Tiles"]
+position = Vector2( 97.485, 430.556 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Tiles/Orange Tiles/Tile2"]
+position = Vector2( 0.346909, 0.333915 )
+scale = Vector2( 0.0800467, 0.177519 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tiles/Orange Tiles/Tile2"]
+position = Vector2( 0.237823, -1.90735e-006 )
+shape = SubResource( 5 )
